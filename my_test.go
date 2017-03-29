@@ -8,7 +8,7 @@ import "log"
 
 func TestMyFunc(t *testing.T) {
 
-	dl := GetData("answers.txt")
+	dl := GetData("answers1.txt")
 
 	class := GetClassis(dl)
 
