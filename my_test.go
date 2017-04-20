@@ -1,18 +1,21 @@
 package lanml
 
-import "testing"
-import "fmt"
-import "io/ioutil"
-import "strings"
+import (
+	"fmt"
+	"io/ioutil"
+	"strings"
+	"testing"
+)
+
 import "log"
 
 func TestMyFunc(t *testing.T) {
 
-	dl := GetData("answers1.txt")
+	dl := GetData("trained.txt")
 
 	class := GetClassis(dl)
 
-	ws1 := GetWords(dl, "./custom.dict", class)
+	ws1 := GetWords(dl, "./custom2.dict", class)
 
 	err := WriteWords(ws1, "data.dat")
 	if err != nil {
@@ -23,8 +26,6 @@ func TestMyFunc(t *testing.T) {
 	if err != nil {
 		log.Println("read words", err.Error())
 	}
-
-	fmt.Println(GetResult("北京路堵不堵", ws, class))
 
 	data, err := ioutil.ReadFile("./test.txt")
 	errCheck("读取测试数据", err, true)
