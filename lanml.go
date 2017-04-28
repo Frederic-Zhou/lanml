@@ -118,7 +118,7 @@ func GetResult(text string, words Words, classis Classis) (result []Result) {
 				if _, ok := c[k]; ok {
 					resultMap[k] = resultMap[k] * c[k].Prob
 				} else {
-					resultMap[k] = resultMap[k] * (0.1 / float64(classis[k].Count))
+					resultMap[k] = resultMap[k] * (0.0000000000001 / float64(classis[k].Count))
 				}
 
 			}
