@@ -12,6 +12,8 @@ import (
 	"github.com/yanyiwu/gojieba"
 )
 
+const defaultProb = 0.0000000000000000000001
+
 func GetData(filepath string) (dataList [][]string) {
 	data, err := ioutil.ReadFile(filepath)
 	errCheck("read file error", err, true)
@@ -118,7 +120,7 @@ func GetResult(text string, words Words, classis Classis) (result []Result) {
 				if _, ok := c[k]; ok {
 					resultMap[k] = resultMap[k] * c[k].Prob
 				} else {
-					resultMap[k] = resultMap[k] * (0.0000000000001 / float64(classis[k].Count))
+					resultMap[k] = resultMap[k] * (defaultProb / float64(classis[k].Count))
 				}
 
 			}

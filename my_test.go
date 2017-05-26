@@ -15,14 +15,14 @@ func TestMyFunc(t *testing.T) {
 
 	class := GetClassis(dl)
 
-	ws1 := GetWords(dl, "./custom2.dict", class)
+	ws1 := GetWords(dl, "./custom.dict", class)
 
-	err := WriteWords(ws1, "data.dat")
+	err := WriteWords(ws1, "words.dat")
 	if err != nil {
 		log.Println("write words", err.Error())
 	}
 
-	ws, err := ReadWords("data.dat")
+	ws, err := ReadWords("words.dat")
 	if err != nil {
 		log.Println("read words", err.Error())
 	}
